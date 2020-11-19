@@ -6,9 +6,24 @@
 
 int main(int argc, char *argv[]) {
 	
-	char src[30] = "happy C programming";
+	FILE *fp;
+	char str[100];
+	int i;
+	
+	fp = fopen("sample.txt", "w");
+	if (fp == NULL)
+	{
+		return -1;
+	}
+	
+	for(i=0;i<3;i++)
+	{
+		printf("input a word: ");
+		scanf("%s", str);
+		fprintf(fp, "%s\n", str);
+	}
 
-	printf("length of \"%s\": %i\n", src, strlen(src));
+	fclose(fp);
 	
 	return 0;
 }
